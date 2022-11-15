@@ -2,7 +2,7 @@ import express from 'express'
 import { getAllProducts } from '../controllers/ProductsController.js'
 const router = express.Router()
 
-router.get('/', getAllProducts)
+router.get('/allProducts', getAllProducts)
 /* 
 router.get('/:id', getBlog)
 router.post('/', createBlog)

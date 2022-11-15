@@ -1,21 +1,28 @@
 import express  from "express"
 import cors from 'cors'
-import { getAllProducts } from './Controllers/ProductsController.js'
-//importamos la conexión a la DB
-import db from "./index.js"
-//importamos nuestro enrutador
-import AllProductRoutes from './routes/routes.js'
-const router = express.Router()
+import productModel from "./Models/ProductsModels.js";
+import routes from './routes/routes.js'
 
-console.log(router.get('/', getAllProducts));
+const mostrar =  async () => {
+    try {
+      const products = await productModel.findAll();
+      console.log(products);
+    } catch (error) {
+     console.log(error.mesage);
+    }
+  }
+  
+  mostrar();
+
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-app.use('/products', router.get('/', getAllProducts))
+app.use(routes)
 
-app.listen(27017, ()=>{
-    console.log('Server UP running in http://localhost')
+
+app.listen(3000, ()=>{
+    console.log('Server UP running in dont know')
 })

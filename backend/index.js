@@ -13,6 +13,11 @@ mongoose.connect(
 	"Connected to your ChemiMax database")
 );
 
-const db = mongoose.connection;
+const db = mongoose.connection;	
+
+
+db.on('open', ()=>{ console.log("¡Conectado a MongoDB!")} )
+db.on('error', ()=>{ console.log("¡Error al conectar a MongoDB!")} )
+
 
 export default db;

@@ -1,12 +1,18 @@
-import { Double } from "mongodb";
+import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
 
-const productSchema = new schema({
-  _id: { type: String },
-  productName: { type: String },
-  price: { type: String },
-});
+const productSchema = new schema(
+  {
+    _id: { type: ObjectId },
+    productName: { type: String },
+    price: { type: String }
+  },
+  {
+    collection: "Products",
+  }
+);
 
-export default mongoose.model("product", productSchema);
+export default mongoose.model("productModel", productSchema);
+
