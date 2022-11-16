@@ -1,13 +1,11 @@
 import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 
-const schema = mongoose.Schema;
-
-const productSchema = new schema(
+const productSchema = new mongoose.Schema(
   {
-    _id: { type: ObjectId },
-    productName: { type: String },
-    price: { type: String }
+    _id: ObjectId,
+    productName: String,
+    price: String 
   },
   {
     collection: "Products",
