@@ -4,13 +4,6 @@ import db from "./index.js";
 import productModel from "./Models/ProductsModels.js";
 import routes from "./routes/routes.js";
 
-const mostrar = async () => {
-  const products = await productModel.find();
-  console.log(products);
-};
-
-mostrar();
-
 const app = express();
 
 app.use(cors());
