@@ -8,3 +8,13 @@ export const getAllProducts = async (req, res) => {
     res.json({ message: error.message });
   }
 };
+
+export const getProductById = async (req, res) => {
+  try {
+    const product = await productModel.findById(req.id);
+    res.status(200).json(product);
+  }
+  catch (error) {
+    res.json({ message: error.message });
+  }
+}
